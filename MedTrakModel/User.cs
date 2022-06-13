@@ -39,7 +39,7 @@ public class User
 
     public string Email { get; set; }
     public List<Medicine> Medicine { get; set; }
-    public Customer()
+    public User()
     {
         userID = 1;
         Name = "Daniel Pagan";
