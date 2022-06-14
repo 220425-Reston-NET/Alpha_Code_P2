@@ -1,4 +1,7 @@
-﻿namespace MedTrakModel;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+
+namespace MedTrakModel;
 public class User
 {
     private int _userID;

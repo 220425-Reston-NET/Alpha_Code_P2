@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+
 public class Medicine{
     private int _medID;
     public int medID
@@ -50,8 +53,8 @@ public class Medicine{
         }
     }
 
-    private string _quantity;
-    public string Quantity 
+    private int _quantity;
+    public int Quantity 
     {
         get { return _quantity; }
         set
@@ -70,6 +73,6 @@ public class Medicine{
 
     public override string ToString()
     {
-        return $"=======\nID: {medID}\nName: {MedName}\nDose: {medDose}\nQuantity: {Quantity}\n=======";
+        return $"=======\nID: {medID}\nName: {medName}\nDose: {medDose}\nQuantity: {Quantity}\n=======";
     }
 }
