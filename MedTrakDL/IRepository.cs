@@ -15,7 +15,7 @@ public interface IRepository<T>
     /// </summary>
     /// <returns>T is the resource being given</returns>
     List<T> GetAll();
-    Task<List<T>> GetAllAsync();
+
 
     /// <summary>
     /// This will update an existing resource

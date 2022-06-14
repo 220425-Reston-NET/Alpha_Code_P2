@@ -19,10 +19,10 @@ public class Medicine{
             }
         }
     }
-    private string _medName;
-    public string medName
+    private string ? _medName;
+    public string ? medName
     {
-        get { return _medName; }
+        get { return  _medName; }
         set
         {
 
