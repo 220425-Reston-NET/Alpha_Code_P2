@@ -1,4 +1,6 @@
 using MedTrakModel;
+using Microsoft.Data.SqlClient;
+
 namespace MedTrakDL
 {
     public class SqlUserRepository : IRepository<User>
@@ -13,8 +15,8 @@ namespace MedTrakDL
         // ================================================
         public void Add(User p_resource)
         {
-            String SQLQuery = @"insert into Patient
-                                values(@pName, @pAddress, @pEmailAddress)";
+            String SQLQuery = @"insert into User
+                                values(@userName, @userAddress, @userEmail)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -22,9 +24,9 @@ namespace MedTrakDL
 
                 SqlCommand command = new SqlCommand(SQLQuery, con);
 
-                command.Parameters.AddWithValue("@pName", p_resource.Name);
-                command.Parameters.AddWithValue("@pAddress", p_resource.Address);
-                command.Parameters.AddWithValue("@pPhone", p_resource.Phone);
+                command.Parameters.AddWithValue("@userName", p_resource.Name);
+                command.Parameters.AddWithValue("@userAddress", p_resource.Address);
+                command.Parameters.AddWithValue("@userEmail", p_resource.Email);
 
                 command.ExecuteNonQuery();
             }
@@ -37,7 +39,7 @@ namespace MedTrakDL
 
         public List<User> GetAll()
         {
-            String SQLQuery = @"select * from Patient";
+            String SQLQuery = @"select * from User";
             List<User> listofUser = new List<User>();
 
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -62,33 +64,6 @@ namespace MedTrakDL
             }
 
 
-        }
-
-        public async Task<List<User>> GetAllAsync()
-        {
-            String SQLQuery = @"select * from Patient";
-            List<User> listofUser = new List<User>();
-
-            using (SqlConnection con = new SqlConnection(_connectionString))
-            {
-                await con.OpenAsync();
-
-                SqlCommand command = new SqlCommand(SQLQuery, con);
-
-                SqlDataReader reader = await command.ExecuteReaderAsync();
-
-                while (await reader.ExecuteReaderAsync())
-                {
-                    listofUser.Add(new User()
-                    {
-                        userID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Address = reader.GetString(2),
-                        Email = reader.GetString(3)
-                    });
-                }
-                return listofUser;
-            }
         }
 
         public void Update(User p_resource)
