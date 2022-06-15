@@ -1676,6 +1676,16 @@
         "build": {
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "MedTrakModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MedTrakModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MedTrakModel.dll": {}
+        }
       }
     }
   },
@@ -5975,10 +5985,16 @@
         "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "MedTrakModel/1.0.0": {
+      "type": "project",
+      "path": "../MedTrakModel/MedTrakModel.csproj",
+      "msbuildProject": "../MedTrakModel/MedTrakModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MedTrakModel >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.3.0-preview-20220612-01",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2-pre.12",
@@ -6016,7 +6032,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj": {
+              "projectPath": "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
