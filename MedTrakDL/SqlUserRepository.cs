@@ -68,7 +68,23 @@ namespace MedTrakDL
 
         public void Update(User p_resource)
         {
-            throw new NotImplementedException();
+            string SQLquery = @"update User
+                            set userName = @userName, userAddress = @userEmail
+                            where userID = @userID";
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(SQLquery, con);
+                command.Parameters.AddWithValue("@userName", p_resource.Name);
+                command.Parameters.AddWithValue("@userAddress", p_resource.Address);
+                command.Parameters.AddWithValue("@userEmail", p_resource.Email);
+                command.Parameters.AddWithValue("@userID", p_resource.userID);
+
+                command.ExecuteNonQuery();
+            }
         }
+        
     }
 }
