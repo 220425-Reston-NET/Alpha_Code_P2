@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj": {}
+    "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj": {
+    "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj",
+        "projectUniqueName": "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj",
         "projectName": "MedTrakModel",
-        "projectPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj",
-        "packagesPath": "C:\\Users\\israel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\obj\\",
+        "projectPath": "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\MedTrakModel.csproj",
+        "packagesPath": "C:\\Users\\jlope\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jlope\\Documents\\Revature\\anyfolder\\Alpha_Code_P2\\MedTrakModel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\israel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jlope\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
