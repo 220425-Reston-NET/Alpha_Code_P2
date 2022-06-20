@@ -33,7 +33,7 @@ namespace MedTrakBL
             _medRepo.Update(medTable);
         }
 
-        public Medicine SearchMedicineeByName(string p_medName)
+        public Medicine SearchMedicineByName(string p_medName)
         {
             return _medRepo.GetAll().First(Medicine => Medicine.medName == p_medName);
         }

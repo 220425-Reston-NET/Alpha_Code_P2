@@ -43,5 +43,10 @@ namespace MedTrakBL
             }
                 return null;
         }
+
+        User IUserBL.SearchUserByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

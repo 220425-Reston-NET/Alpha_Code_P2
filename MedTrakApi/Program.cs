@@ -1,3 +1,8 @@
+using MedTrakBL;
+using MedTrakDL;
+using MedTrakModel;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IRepository<User>, SqlUserRepository>(repo => new SqlUserRepository(Environment.GetEnvironmentVariable("Connection_String")));
+builder.Services.AddScoped<IUserBL, UserBL>();
+builder.Services.AddScoped<IRepository<Medicine>, SqlMedicineRepository>(repo => new SqlMedicineRepository(Environment.GetEnvironmentVariable("Connection_String")));
+builder.Services.AddScoped<IMedicineBL, MedicineBL>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
