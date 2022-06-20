@@ -58,9 +58,9 @@ public class UserController : ControllerBase{
     }
 
     [HttpPut("ReplenishQuantity")]
-    public IActionResult ReplenishQuantity([FromBody] User p_user, Medicine m_med)
+    public IActionResult ReplenishQuantity([FromQuery] int medID, [FromQuery] int userID, [FromQuery] int Quantity, [FromQuery] string Email )
     {
-        User found = _userBL.SearchUserByEmail(p_user.Email);
+        User found = _userBL.SearchUserByEmail(Email);
 
         if (found == null)
         {
@@ -71,7 +71,7 @@ public class UserController : ControllerBase{
         {
             try
             {
-                 _medicineBL.ReplenishMedicineQuantity(m_med.medID, p_user.userID, m_med.Quantity);
+                 _medicineBL.ReplenishMedicineQuantity(medID, userID, Quantity);
 
                 return Ok();
             }

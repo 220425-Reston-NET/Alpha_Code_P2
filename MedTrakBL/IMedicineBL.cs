@@ -1,3 +1,5 @@
+using MedTrakModel;
+
 namespace MedTrakBL
 {
     public interface IMedicineBL

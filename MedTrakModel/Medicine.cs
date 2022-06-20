@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
+namespace MedTrakModel;
 public class Medicine{
     private int _medID;
     public int medID

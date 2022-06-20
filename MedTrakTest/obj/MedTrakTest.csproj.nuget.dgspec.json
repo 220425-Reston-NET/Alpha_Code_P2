@@ -4,14 +4,14 @@
     "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj": {
+    "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj",
-        "projectName": "MedTrakTest",
-        "projectPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj",
+        "projectUniqueName": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj",
+        "projectName": "MedTrakModel",
+        "projectPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj",
         "packagesPath": "C:\\Users\\israel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\obj\\",
+        "outputPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\israel\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,8 +37,80 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj",
+        "projectName": "MedTrakTest",
+        "projectPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\MedTrakTest.csproj",
+        "packagesPath": "C:\\Users\\israel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\israel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj": {
+                "projectPath": "C:\\Users\\israel\\Documents\\Revature\\AlphaCodeProject\\MedTrakModel\\MedTrakModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.3.0-preview-20220612-01, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2-pre.12, )"
+            },
             "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.4.5, )"
             }
