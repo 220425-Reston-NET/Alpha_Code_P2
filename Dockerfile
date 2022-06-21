@@ -1,34 +1,17 @@
-from mcr.microsoft.com/dotnet/sdk:6.0 as build 
-# #working directory docker => docker instruction
- workdir /app 
-
- # copying our files in docker image * => grabs all sln
-copy *.sln ./ 
-copy MedTrakApi/*.csproj MedTrakApi/
-copy MedTrakBL/*.csproj MedTrakBL/
-copy MedTrakDL/*.csproj MedTrakDL/
-copy MedTrakModel/*.csproj MedtrakModel/
-copy MedTrakTest/*.csproj MedTrakTest/
-
-# copyin everthing expect things I ignore in dockerignore file
-copy . ./
-
-# cli command to restore our bin and object by building the app
-run dotnet build 
-
-# #new dotnet command (this creates a file caslled publish )
-run dotnet publish -c Release -o publish
-
-# ---------- End of build stage -> Run time stage --> multi stage
+#Another stage that is all about running the application or how to run
 from mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
 
 workdir /app
-#  this copy the publish file created in the build stage
-copy --from=build /app/publish ./
+#Remove the copy instruction here
 
-# command to tell docker engine where the application start/run from
-cmd ["dotnet", "MedTrakApi.dll"]
+#Copy the publish folder into the image
+copy /publish ./
 
-# default port is 80 
-expose 80
+#Change from CMD to entrypoint
+entrypoint ["dotnet", "MedTrakApi.dll"]
 
+#Change port to 5000
+expose 5000
+
+#Add new environment to change ASP.NET app to listen to 5000 port
+env ASPNETCORE_URLS=http://+:5000
