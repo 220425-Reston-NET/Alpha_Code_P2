@@ -15,7 +15,7 @@ namespace MedTrakDL
         // ================================================
         public void Add(User p_resource)
         {
-            String SQLQuery = @"insert into User
+            String SQLQuery = @"insert into Users
                                 values(@userName, @userAddress, @userEmail, @userPassword)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -54,7 +54,7 @@ namespace MedTrakDL
 
         public List<User> GetAll()
         {
-            String SQLQuery = @"select * from User";
+            String SQLQuery = @"select * from Users";
             List<User> listofUser = new List<User>();
 
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -86,7 +86,7 @@ namespace MedTrakDL
         {
             string SQLquery = @"select * from Users u
                                 inner join Medicine m on m.userID = u.userID
-                                where u.userID = (info you got from the frontend)";
+                                where u.userID = u.userID";
 
             List<Medicine> ListOfMedicine = new List<Medicine>();
             using (SqlConnection con = new SqlConnection(_connectionString))

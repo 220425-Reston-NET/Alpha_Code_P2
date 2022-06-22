@@ -24,7 +24,7 @@ public class UserController : ControllerBase{
             _userBL.AddUser(u_use);
             return Created("Customer was added!", u_use);
         }
-        catch (SqlException)
+        catch (System.AccessViolationException)
         {
             return Conflict();
         }
