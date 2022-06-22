@@ -41,6 +41,8 @@ public class User
     public string Address { get; set; }
 
     public string Email { get; set; }
+
+    public string Password {get; set; }
     public List<Medicine> Medicine { get; set; }
     public User()
     {
@@ -48,6 +50,7 @@ public class User
         Name = "Daniel Pagan";
         Address = "1234 farway";
         Email = "dannyrand@gmail.com ";
+        Password = "password123";
         Medicine = new List<Medicine>();
     }
 
@@ -56,7 +59,7 @@ public class User
     public override string ToString()
     {
 
-        return $"===Customer info===/ncustomerID: {userID}Name: {Name}/nAddress: {Address}/nEmail: {Email}/nMedicine: {Medicine}/n==========================";
+        return $"===Customer info===/ncustomerID: {userID}Name: {Name}/nAddress: {Address}/nEmail: {Email}/nPassword: {Password}Medicine: {Medicine}/n==========================";
 
     }
 

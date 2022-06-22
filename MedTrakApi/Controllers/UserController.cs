@@ -82,7 +82,7 @@ public class UserController : ControllerBase{
         }
     }
 
-    [HttpGet("SearchCustomerByName")]
+    [HttpGet("SearchMedicineByName")]
     public IActionResult SearchMedicineByName([FromQuery] string medName)
     {
         try
@@ -95,8 +95,8 @@ public class UserController : ControllerBase{
         }
     }
 
-    [HttpGet("GetAllCustomers")]
-    public IActionResult GetAllCustomers()
+    [HttpGet("GetAllMedicine")]
+    public IActionResult GetAllMedicine()
     {
         try
         {

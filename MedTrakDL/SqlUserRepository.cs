@@ -16,7 +16,7 @@ namespace MedTrakDL
         public void Add(User p_resource)
         {
             String SQLQuery = @"insert into User
-                                values(@userName, @userAddress, @userEmail)";
+                                values(@userName, @userAddress, @userEmail, @userPassword)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -27,6 +27,7 @@ namespace MedTrakDL
                 command.Parameters.AddWithValue("@userName", p_resource.Name);
                 command.Parameters.AddWithValue("@userAddress", p_resource.Address);
                 command.Parameters.AddWithValue("@userEmail", p_resource.Email);
+                command.Parameters.AddWithValue("@userPassword", p_resource.Password);
 
                 command.ExecuteNonQuery();
             }
@@ -57,7 +58,8 @@ namespace MedTrakDL
                         userID = reader.GetInt32(0),
                         Name = reader.GetString(1),
                         Address = reader.GetString(2),
-                        Email = reader.GetString(3)
+                        Email = reader.GetString(3),
+                        Password = reader.GetString(4)
                     });
                 }
                 return listofUser;
@@ -69,7 +71,7 @@ namespace MedTrakDL
         public void Update(User p_resource)
         {
             string SQLquery = @"update User
-                            set userName = @userName, userAddress = @userEmail
+                            set userName = @userName, userAddress = @userAddress, userEmail = @userEmail, userPassword = @userPassword
                             where userID = @userID";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -80,7 +82,9 @@ namespace MedTrakDL
                 command.Parameters.AddWithValue("@userName", p_resource.Name);
                 command.Parameters.AddWithValue("@userAddress", p_resource.Address);
                 command.Parameters.AddWithValue("@userEmail", p_resource.Email);
+                command.Parameters.AddWithValue("@userPassword", p_resource.Password);
                 command.Parameters.AddWithValue("@userID", p_resource.userID);
+                
 
                 command.ExecuteNonQuery();
             }
