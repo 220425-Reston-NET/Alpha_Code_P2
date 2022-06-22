@@ -107,7 +107,19 @@ public class UserController : ControllerBase{
             return Conflict();
         }
     }
-    // Search customer here and return it
+
+    [HttpGet("SearchUserByEmailAndPassword")]
+    public IActionResult SearchUserByEmailAndPassword([FromQuery] string Email, [FromQuery] string Password)
+    {
+        try
+        {
+            return Ok(_userBL.SearchUserByEmailAndPassword(Email, Password));
+        }
+        catch (SqlException)
+        {
+            return Conflict();
+        }
+    }
 
     [HttpGet("GetAllMedicine")]
     public IActionResult GetAllMedicine()
