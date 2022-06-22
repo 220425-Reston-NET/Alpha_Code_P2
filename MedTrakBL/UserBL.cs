@@ -12,16 +12,16 @@ namespace MedTrakBL
         }
         public void AddUser(User u_use)
         {
-            // User foundedcustomer = SearchUserByName(u_use.Name);
+            User foundedcustomer = SearchUserByName(u_use.Name);
 
-            // if (foundedcustomer == null)
-            // {
+            if (foundedcustomer == null)
+            {
                 _userRepo.Add(u_use);
-            // }
-    //    /     else
-    //         {
-    //             throw new Exception("An accout with this Email address already exists");
-    //         }
+            }
+            else
+            {
+                throw new Exception("An accout with this Email address already exists");
+            }
         }
 
         public List<Medicine> ViewAllMedicine(int p_userID)
@@ -36,7 +36,7 @@ namespace MedTrakBL
                     return item.Medicine;
                 }
             }
-                return null;
+            return null;
         }
 
         User IUserBL.SearchUserByEmailAndPassword(string Email, string Password)
