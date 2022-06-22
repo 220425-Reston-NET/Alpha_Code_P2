@@ -58,9 +58,9 @@ public class UserController : ControllerBase{
     }
 
     [HttpPut("ReplenishQuantity")]
-    public IActionResult ReplenishQuantity([FromQuery] int medID, [FromQuery] int userID, [FromQuery] int Quantity, [FromQuery] string Email )
+    public IActionResult ReplenishQuantity([FromQuery] int medID, [FromQuery] int userID, [FromQuery] int Quantity, [FromQuery] string Email, [FromQuery] string Password )
     {
-        User found = _userBL.SearchUserByEmail(Email);
+        User found = _userBL.SearchUserByEmailAndPassword(Email, Password);
 
         if (found == null)
         {
@@ -94,6 +94,20 @@ public class UserController : ControllerBase{
             return Conflict();
         }
     }
+
+    [HttpGet("SearchUserByName")]
+    public IActionResult SearchUserByName([FromQuery] string userName)
+    {
+        try
+        {
+            return Ok(_userBL.SearchUserByName(userName));
+        }
+        catch (SqlException)
+        {
+            return Conflict();
+        }
+    }
+    // Search customer here and return it
 
     [HttpGet("GetAllMedicine")]
     public IActionResult GetAllMedicine()

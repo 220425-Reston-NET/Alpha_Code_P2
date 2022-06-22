@@ -59,13 +59,44 @@ namespace MedTrakDL
                         Name = reader.GetString(1),
                         Address = reader.GetString(2),
                         Email = reader.GetString(3),
-                        Password = reader.GetString(4)
+                        Password = reader.GetString(4),
+                        Medicine = GiveMedicineToUser(reader.GetInt32(0))
                     });
                 }
                 return listofUser;
             }
 
+        }
 
+        private List<Medicine> GiveMedicineToUser(int userID)
+        {
+            string SQLquery = @"select * from Users u
+                                inner join Medicine m on m.userID = u.userID
+                                where u.userID = (info you got from the frontend)";
+
+            List<Medicine> ListOfMedicine = new List<Medicine>();
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(SQLquery, con);
+
+                command.Parameters.AddWithValue("@userID", userID);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListOfMedicine.Add(new Medicine(){
+                        medID = reader.GetInt32(0),
+                        medName = reader.GetString(1),
+                        medDose = reader.GetInt32(2),
+                        Quantity = reader.GetInt32(3)
+                    });
+                    
+                }
+            }
+            return ListOfMedicine;
         }
 
         public void Update(User p_resource)

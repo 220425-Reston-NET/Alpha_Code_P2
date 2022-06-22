@@ -6,7 +6,9 @@ namespace MedTrakBL
     {
         void AddUser(User u_use);
         public List<Medicine> ViewAllMedicine(int p_userID);
-        User SearchUserByEmail(string email);
+
+        User SearchUserByName(string p_userName);
+        User SearchUserByEmailAndPassword(string Email, string Password);
     }
 }
 
