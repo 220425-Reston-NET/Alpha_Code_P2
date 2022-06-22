@@ -35,7 +35,21 @@ namespace MedTrakDL
 
         public void Delete(User p_resource)
         {
-            throw new NotImplementedException();
+            String SQLQuery = @"DELETE FROM Users WHERE userID = @userID";
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(SQLQuery, con);
+
+                command.Parameters.AddWithValue("@Name", p_resource.Name);
+                command.Parameters.AddWithValue("@Address", p_resource.Address);
+                command.Parameters.AddWithValue("@Email", p_resource.Email);
+                command.Parameters.AddWithValue("@Password", p_resource.Password);
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public List<User> GetAll()
