@@ -51,7 +51,7 @@ public class UserController : ControllerBase{
             _medicineBL.AddMedicine(m_med);
             return Created("Medicine was added!", m_med);
         }
-        catch (SqlException)
+        catch (System.AccessViolationException)
         {
             return Conflict();
         }

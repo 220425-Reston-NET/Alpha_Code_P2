@@ -39,7 +39,7 @@ namespace MedTrakBL
             return null;
         }
 
-        User IUserBL.SearchUserByEmailAndPassword(string Email, string Password)
+        public User SearchUserByEmailAndPassword(string Email, string Password)
         {
             return _userRepo.GetAll().First(user => user.Email == Email && user.Password == Password);
         }

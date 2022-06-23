@@ -72,6 +72,8 @@ public class Medicine{
         }
     }
 
+    public int userID{ get; set; }
+
     public override string ToString()
     {
         return $"=======\nID: {medID}\nName: {medName}\nDose: {medDose}\nQuantity: {Quantity}\n=======";

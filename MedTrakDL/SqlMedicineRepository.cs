@@ -12,11 +12,11 @@ namespace MedTrakDL
         {
             this._connectionString = p_connectionString;
         }
-         // ================================================
+        // ================================================
         public void Add(Medicine p_resource)
         {
             String SQLQuery = @"insert into Medicine
-                                values(@medName, @medDose, @Quantity)";
+                                values(@medName, @medDose, @Quantity, @userID)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -24,9 +24,10 @@ namespace MedTrakDL
 
                 SqlCommand command = new SqlCommand(SQLQuery, con);
 
-                command.Parameters.AddWithValue("@userName", p_resource.medName);
-                command.Parameters.AddWithValue("@userAddress", p_resource.medDose);
-                command.Parameters.AddWithValue("@userEmail", p_resource.Quantity);
+                command.Parameters.AddWithValue("@medName", p_resource.medName);
+                command.Parameters.AddWithValue("@medDose", p_resource.medDose);
+                command.Parameters.AddWithValue("@Quantity", p_resource.Quantity);
+                command.Parameters.AddWithValue("@userID", p_resource.userID);
 
                 command.ExecuteNonQuery();
             }
@@ -40,13 +41,12 @@ namespace MedTrakDL
             {
                 con.Open();
 
-            SqlCommand command = new SqlCommand(SQLQuery, con);
+                SqlCommand command = new SqlCommand(SQLQuery, con);
 
-            command.Parameters.AddWithValue("@medName", p_resource.medName);
-            command.Parameters.AddWithValue("@medDose", p_resource.medDose);
-            command.Parameters.AddWithValue("@Quantity", p_resource.Quantity);
+                command.Parameters.AddWithValue("@medID", p_resource.medID);
 
-            command.ExecuteNonQuery();
+
+                command.ExecuteNonQuery();
             }
         }
 
@@ -80,7 +80,7 @@ namespace MedTrakDL
         public void Update(Medicine p_resource)
         {
             string SQLquery = @"update Medicine
-                            set medName = @medName, medDose = @medDose, Quantity = @Quantity
+                            set medName = @medName, medDose = @medDose, Quantity = @Quantity, userID = @userID
                             where medID = @medID";
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -91,6 +91,8 @@ namespace MedTrakDL
                 command.Parameters.AddWithValue("@medName", p_resource.medName);
                 command.Parameters.AddWithValue("@medDose", p_resource.medDose);
                 command.Parameters.AddWithValue("@Quantity", p_resource.Quantity);
+                command.Parameters.AddWithValue("@userID", p_resource.userID);
+
 
                 command.ExecuteNonQuery();
             }
