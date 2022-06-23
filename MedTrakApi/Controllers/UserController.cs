@@ -24,7 +24,7 @@ public class UserController : ControllerBase{
             _userBL.AddUser(u_use);
             return Created("Customer was added!", u_use);
         }
-        catch (System.AccessViolationException)
+        catch (SqlException)
         {
             return Conflict();
         }
@@ -51,7 +51,7 @@ public class UserController : ControllerBase{
             _medicineBL.AddMedicine(m_med);
             return Created("Medicine was added!", m_med);
         }
-        catch (System.AccessViolationException)
+        catch (SqlException)
         {
             return Conflict();
         }
@@ -115,7 +115,7 @@ public class UserController : ControllerBase{
         {
             return Ok(_userBL.SearchUserByEmailAndPassword(Email, Password));
         }
-        catch (SqlException)
+        catch (System.AccessViolationException)
         {
             return Conflict();
         }

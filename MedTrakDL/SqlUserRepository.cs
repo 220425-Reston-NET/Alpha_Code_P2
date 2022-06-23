@@ -86,7 +86,7 @@ namespace MedTrakDL
         {
             string SQLquery = @"select * from Users u
                                 inner join Medicine m on m.userID = u.userID
-                                where u.userID = u.userID";
+                                where u.userID = @userID";
 
             List<Medicine> ListOfMedicine = new List<Medicine>();
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -101,11 +101,12 @@ namespace MedTrakDL
 
                 while (reader.Read())
                 {
-                    ListOfMedicine.Add(new Medicine(){
-                        medID = reader.GetInt32(0),
-                        medName = reader.GetString(1),
-                        medDose = reader.GetInt32(2),
-                        Quantity = reader.GetInt32(3)
+                    ListOfMedicine.Add(new Medicine()
+                    {
+                        medID = reader.GetInt32(5),
+                        medName = reader.GetString(6),
+                        medDose = reader.GetInt32(7),
+                        Quantity = reader.GetInt32(8)
                     });
                     
                 }
@@ -124,11 +125,12 @@ namespace MedTrakDL
                 con.Open();
 
                 SqlCommand command = new SqlCommand(SQLquery, con);
+                command.Parameters.AddWithValue("@userID", p_resource.userID);
                 command.Parameters.AddWithValue("@userName", p_resource.Name);
                 command.Parameters.AddWithValue("@userAddress", p_resource.Address);
                 command.Parameters.AddWithValue("@userEmail", p_resource.Email);
                 command.Parameters.AddWithValue("@userPassword", p_resource.Password);
-                command.Parameters.AddWithValue("@userID", p_resource.userID);
+                
                 
 
                 command.ExecuteNonQuery();
