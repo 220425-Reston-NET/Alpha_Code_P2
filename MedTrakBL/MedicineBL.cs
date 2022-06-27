@@ -23,15 +23,25 @@ namespace MedTrakBL
             return _medRepo.GetAll();
         }
 
-        public void ReplenishMedicineQuantity(int p_medID, int p_medDose, int p_Quantity)
+        // public void ReplenishMedicineQuantity(int p_medID, int p_medDose, int p_Quantity)
+        // {
+           
+        // }
+
+        public void ReplenishMedicineQuantity(int p_medID, int p_userID, int p_Quantity)
         {
             Medicine medTable = new Medicine();
             medTable.medID = p_medID;
-            medTable.medDose = p_medDose;
+            medTable.userID = p_userID;
             medTable.Quantity = p_Quantity;
 
             _medRepo.Update(medTable);
         }
+
+        // public void ReplenishMedicineQuantity(int p_medID, int p_userID, int p_Quantity, string p_Email, string p_Password)
+        // {
+        //     throw new NotImplementedException();
+        // }
 
         public Medicine SearchMedicineByName(string p_medName)
         {

@@ -24,6 +24,7 @@ namespace MedTrakDL
 
                 SqlCommand command = new SqlCommand(SQLQuery, con);
 
+                command.Parameters.AddWithValue("@medID", p_resource.medID);
                 command.Parameters.AddWithValue("@medName", p_resource.medName);
                 command.Parameters.AddWithValue("@medDose", p_resource.medDose);
                 command.Parameters.AddWithValue("@Quantity", p_resource.Quantity);
@@ -80,20 +81,17 @@ namespace MedTrakDL
         public void Update(Medicine p_resource)
         {
             string SQLquery = @"update Medicine
-                            set medName = @medName, medDose = @medDose, Quantity = @Quantity, userID = @userID
-                            where medID = @medID";
+                                set Quantity = @Quantity, userID = @userID
+                                where medID = @medID ";
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
 
                 SqlCommand command = new SqlCommand(SQLquery, con);
 
-                command.Parameters.AddWithValue("@medName", p_resource.medName);
-                command.Parameters.AddWithValue("@medDose", p_resource.medDose);
+                command.Parameters.AddWithValue("@medID", p_resource.medID);
                 command.Parameters.AddWithValue("@Quantity", p_resource.Quantity);
                 command.Parameters.AddWithValue("@userID", p_resource.userID);
-
-
                 command.ExecuteNonQuery();
             }
         }
